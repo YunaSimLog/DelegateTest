@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DelegateTestCode_20231212.Properties
+namespace DelegateTestCode.Properties
 {
 
 

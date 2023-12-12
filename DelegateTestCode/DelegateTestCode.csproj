@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DelegateMode3.cs" />
+    <Compile Include="DelegateMode2.cs" />
+    <Compile Include="DelegateMode1.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

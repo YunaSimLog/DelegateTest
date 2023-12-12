@@ -1,4 +1,4 @@
-﻿namespace DelegateTestCode_20231212
+﻿namespace DelegateTestCode
 {
     partial class Form1
     {
@@ -32,10 +32,15 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.rdoMode1 = new System.Windows.Forms.RadioButton();
             this.rdoMode2 = new System.Windows.Forms.RadioButton();
-            this.gbSelection = new System.Windows.Forms.GroupBox();
+            this.gbSelectionMode = new System.Windows.Forms.GroupBox();
             this.rdoMode3 = new System.Windows.Forms.RadioButton();
             this.lbResult = new System.Windows.Forms.Label();
-            this.gbSelection.SuspendLayout();
+            this.gbSelectionFunc = new System.Windows.Forms.GroupBox();
+            this.rdoFunction3 = new System.Windows.Forms.RadioButton();
+            this.rdoFunction1 = new System.Windows.Forms.RadioButton();
+            this.rdoFunction2 = new System.Windows.Forms.RadioButton();
+            this.gbSelectionMode.SuspendLayout();
+            this.gbSelectionFunc.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnApply
@@ -47,6 +52,7 @@
             this.btnApply.TabIndex = 0;
             this.btnApply.Text = "적용";
             this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // btnClose
             // 
@@ -57,6 +63,7 @@
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "닫기";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // rdoMode1
             // 
@@ -80,17 +87,17 @@
             this.rdoMode2.Text = "Mode2";
             this.rdoMode2.UseVisualStyleBackColor = true;
             // 
-            // gbSelection
+            // gbSelectionMode
             // 
-            this.gbSelection.Controls.Add(this.rdoMode3);
-            this.gbSelection.Controls.Add(this.rdoMode1);
-            this.gbSelection.Controls.Add(this.rdoMode2);
-            this.gbSelection.Location = new System.Drawing.Point(12, 12);
-            this.gbSelection.Name = "gbSelection";
-            this.gbSelection.Size = new System.Drawing.Size(142, 107);
-            this.gbSelection.TabIndex = 4;
-            this.gbSelection.TabStop = false;
-            this.gbSelection.Text = "선택";
+            this.gbSelectionMode.Controls.Add(this.rdoMode3);
+            this.gbSelectionMode.Controls.Add(this.rdoMode1);
+            this.gbSelectionMode.Controls.Add(this.rdoMode2);
+            this.gbSelectionMode.Location = new System.Drawing.Point(12, 12);
+            this.gbSelectionMode.Name = "gbSelectionMode";
+            this.gbSelectionMode.Size = new System.Drawing.Size(108, 107);
+            this.gbSelectionMode.TabIndex = 4;
+            this.gbSelectionMode.TabStop = false;
+            this.gbSelectionMode.Text = "모드 선택";
             // 
             // rdoMode3
             // 
@@ -111,19 +118,67 @@
             this.lbResult.TabIndex = 5;
             this.lbResult.Text = "결과";
             // 
+            // gbSelectionFunc
+            // 
+            this.gbSelectionFunc.Controls.Add(this.rdoFunction3);
+            this.gbSelectionFunc.Controls.Add(this.rdoFunction1);
+            this.gbSelectionFunc.Controls.Add(this.rdoFunction2);
+            this.gbSelectionFunc.Location = new System.Drawing.Point(126, 12);
+            this.gbSelectionFunc.Name = "gbSelectionFunc";
+            this.gbSelectionFunc.Size = new System.Drawing.Size(108, 107);
+            this.gbSelectionFunc.TabIndex = 5;
+            this.gbSelectionFunc.TabStop = false;
+            this.gbSelectionFunc.Text = "동작 선택";
+            // 
+            // rdoFunction3
+            // 
+            this.rdoFunction3.AutoSize = true;
+            this.rdoFunction3.Location = new System.Drawing.Point(19, 73);
+            this.rdoFunction3.Name = "rdoFunction3";
+            this.rdoFunction3.Size = new System.Drawing.Size(77, 16);
+            this.rdoFunction3.TabIndex = 4;
+            this.rdoFunction3.Text = "Function3";
+            this.rdoFunction3.UseVisualStyleBackColor = true;
+            // 
+            // rdoFunction1
+            // 
+            this.rdoFunction1.AutoSize = true;
+            this.rdoFunction1.Checked = true;
+            this.rdoFunction1.Location = new System.Drawing.Point(19, 29);
+            this.rdoFunction1.Name = "rdoFunction1";
+            this.rdoFunction1.Size = new System.Drawing.Size(77, 16);
+            this.rdoFunction1.TabIndex = 2;
+            this.rdoFunction1.TabStop = true;
+            this.rdoFunction1.Text = "Function1";
+            this.rdoFunction1.UseVisualStyleBackColor = true;
+            // 
+            // rdoFunction2
+            // 
+            this.rdoFunction2.AutoSize = true;
+            this.rdoFunction2.Location = new System.Drawing.Point(19, 51);
+            this.rdoFunction2.Name = "rdoFunction2";
+            this.rdoFunction2.Size = new System.Drawing.Size(77, 16);
+            this.rdoFunction2.TabIndex = 3;
+            this.rdoFunction2.Text = "Function2";
+            this.rdoFunction2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(334, 202);
+            this.Controls.Add(this.gbSelectionFunc);
             this.Controls.Add(this.lbResult);
-            this.Controls.Add(this.gbSelection);
+            this.Controls.Add(this.gbSelectionMode);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnApply);
             this.Name = "Form1";
             this.Text = "DelegateTest";
-            this.gbSelection.ResumeLayout(false);
-            this.gbSelection.PerformLayout();
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.gbSelectionMode.ResumeLayout(false);
+            this.gbSelectionMode.PerformLayout();
+            this.gbSelectionFunc.ResumeLayout(false);
+            this.gbSelectionFunc.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,9 +190,13 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.RadioButton rdoMode1;
         private System.Windows.Forms.RadioButton rdoMode2;
-        private System.Windows.Forms.GroupBox gbSelection;
+        private System.Windows.Forms.GroupBox gbSelectionMode;
         private System.Windows.Forms.RadioButton rdoMode3;
         private System.Windows.Forms.Label lbResult;
+        private System.Windows.Forms.GroupBox gbSelectionFunc;
+        private System.Windows.Forms.RadioButton rdoFunction3;
+        private System.Windows.Forms.RadioButton rdoFunction1;
+        private System.Windows.Forms.RadioButton rdoFunction2;
     }
 }
 

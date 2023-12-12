@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DelegateTestCode_20231212
+namespace DelegateTestCode
 {
     internal static class Program
     {
